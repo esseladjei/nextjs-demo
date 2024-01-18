@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import MealsGrid from '@/components/meals/meals-grid';
 import Style from './page.module.css'
+import { getMeals } from '@/api/meals-backend';
 
 
-export default function MealsPage() {
+export default async function MealsPage() {
 
-
+  const mealsData = await getMeals();
 
   return (
 
@@ -21,20 +22,7 @@ export default function MealsPage() {
         </p>
       </header>
       <main className={Style.main}>
-        <MealsGrid meals={[
-          {
-            title: 'Food 1',
-            slug: '1', summary: 'This is some nice food 1 menu',
-            creator:'Kofi Mensah',
-            summary: 'This is some special food'
-          }, {
-            title: 'Banku',
-            slug: '2',
-            creator: 'Kofi Adjei',
-            summary: 'This is some special bank'
-          }
-
-        ]} />
+        <MealsGrid meals={mealsData}/>
       </main>
 
     </>
