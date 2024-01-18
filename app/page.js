@@ -1,28 +1,28 @@
 import Link from 'next/link';
-import Styles from './page.module.css';
+import styless from './page.module.css';
 import ImageSlideshow from '@/components/images-slides/images-slideshow';
 
 export default function Home() {
   return (
     <>
-      <header className={Styles.header}>
-        <div className={Styles.slideshow}>
+      <header className={styless.header}>
+        <div className={styless.slideshow}>
           <ImageSlideshow />
 
         </div>
         <div>
-          <div className={Styles.hero}>
+          <div className={styless.hero}>
             <h1>NextLevel Food for NextLevel Foodies</h1>
             <p>Taste & share food from all over the world.</p>
           </div>
-          <div className={Styles.cta}>
+          <div className={styless.cta}>
             <Link href="/community">Join the Community</Link>
             <Link href="/meals">Explore Meals</Link>
           </div>
         </div>
       </header>
       <main>
-        <section className={Styles.section}>
+        <section className={styless.section}>
           <h2>How it works</h2>
           <p>
             NextLevel Food is a platform for foodies to share their favorite
@@ -35,7 +35,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section className={Styles.section}>
+        <section className={styless.section}>
           <h2>Why NextLevel Food?</h2>
           <p>
             NextLevel Food is a platform for foodies to share their favorite

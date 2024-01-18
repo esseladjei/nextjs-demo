@@ -3,21 +3,21 @@ import Image from 'next/image';
 import mealIcon from '@/assets/icons/meal.png';
 import communityIcon from '@/assets/icons/community.png';
 import eventsIcon from '@/assets/icons/events.png';
-import Styles from './page.module.css';
+import styless from './page.module.css';
 
 export default function CommunityPage() {
   return (
     <>
-      <header className={Styles.header}>
+      <header className={styless.header}>
         <h1>
-          One shared passion: <span className={Styles.highlight}>Food</span>
+          One shared passion: <span className={styless.highlight}>Food</span>
         </h1>
         <p>Join our community and share your favorite recipes!</p>
       </header>
-      <main className={Styles.main}>
+      <main className={styless.main}>
         <h2>Community Perks</h2>
 
-        <ul className={Styles.perks}>
+        <ul className={styless.perks}>
           <li>
             <Image src={mealIcon} alt="A delicious meal" />
             <p>Share & discover recipes</p>

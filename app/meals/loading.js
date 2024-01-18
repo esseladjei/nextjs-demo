@@ -1,7 +1,7 @@
-import Styles from './loading.module.css'
+import styless from './loading.module.css'
 
 export default function Loading() {
-  return <p className={Styles.loading}>Fetching data...</p>
+  return <p className={styless.loading}>Fetching data...</p>
 }
 
 
