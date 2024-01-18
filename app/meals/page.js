@@ -2,14 +2,17 @@ import Link from 'next/link';
 import MealsGrid from '@/components/meals/meals-grid';
 import Style from './page.module.css'
 import { getMeals } from '@/api/meals-backend';
+import { Suspense } from 'react';
 
-
-export default async function MealsPage() {
-
+/*delegate this meals component to be fetching and returning the meals grid
+Now the data fetching part is outsourced into this component, and the React Suspense will be used to load it */
+async function Meals() {
   const mealsData = await getMeals();
+  return <MealsGrid meals={mealsData} />
+}
 
+export default function MealsPage() {
   return (
-
     <>
       <header className={Style.header}>
         <h1>
@@ -22,7 +25,11 @@ export default async function MealsPage() {
         </p>
       </header>
       <main className={Style.main}>
-        <MealsGrid meals={mealsData}/>
+        {/* This allow nextjs/react to load the page with all the contents that
+        can already be rendered and then streams in and render the loaded content once the async/slow process is done */}
+        <Suspense fallback={<p className={Style.loading}>Fetching data...</p>}>
+          <Meals />
+        </Suspense>
       </main>
 
     </>
