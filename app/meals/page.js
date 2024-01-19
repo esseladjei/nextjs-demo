@@ -25,8 +25,10 @@ export default function MealsPage() {
         </p>
       </header>
       <main className={styles.main}>
-        {/* This allow nextjs/react to load the page with all the contents that
-        can already be rendered and then streams in and render the loaded content once the async/slow process is done */}
+         {/* This allow nextjs/react to load the page with all the
+           contents that can already be rendered and then streams 
+           in and render the loaded content once the async/slow process is done 
+         */}
         <Suspense fallback={<p className={styles.loading}>Fetching data...</p>}>
           <Meals />
         </Suspense>
