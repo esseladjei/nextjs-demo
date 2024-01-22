@@ -1,6 +1,19 @@
+/* Using serve actions to post forms only works if you don't have use client component
+  If you do , you will get error since the component becomes  a client component
+  Also, you might have problems if you have client actions performed on your form and 
+  as such you had already used made it a client componet.
+   To resolve this , it is better to move it into a seperate file and add 'use server' to the file
+   This way you can freely use client on the form component file without errors
+*/
+
+import shareMeal from '@/api/post-form';
 import classes from './page.module.css';
 import ImagePicker from '@/components/image-picker/image-picker';
+import MealFormSubmitButtonStatus from '../meal-form-submit-status';
+
 export default function ShareMealPage() {
+
+    
   return (
     <>
       <header className={classes.header}>
@@ -10,7 +23,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
-        <form className={classes.form}>
+        <form className={classes.form} action={shareMeal}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
@@ -40,7 +53,7 @@ export default function ShareMealPage() {
           </p>
            <ImagePicker label='Upload an image of your meal' name='mealimage'/>
           <p className={classes.actions}>
-            <button type="submit">Share Meal</button>
+            <MealFormSubmitButtonStatus />
           </p>
         </form>
       </main>

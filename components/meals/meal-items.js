@@ -17,8 +17,9 @@ export default function MealItem({ title, slug, image, summary, creator }) {
       </header>
       <div className={classes.content}>
         <p className={classes.summary}>{summary}</p>
-        <div className={classes.actions}>
-          <Link href={`/meals/${slug}`}>View Details</Link>
+        <div className={`${classes.actions} ${classes['actions-container']}`}>
+          <Link className={classes.removemeal} href={`/removemeal/${slug}`}>Remove Meal</Link>
+          <Link className={classes.viewmeal} href={`/meals/${slug}`}>View Details</Link>
         </div>
       </div>
     </article>

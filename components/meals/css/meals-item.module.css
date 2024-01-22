@@ -62,14 +62,28 @@
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  background: linear-gradient(90deg, #f9572a, #ff9b05);
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
 }
 
-.actions a:hover,
-.actions a:active {
+.actions-container{
+  display: flex;
+  justify-content: space-between;
+}
+.removemeal{
+  background: linear-gradient(90deg, #fd4715, #f9572ac7);
+}
+.removemeal:hover,
+.removemeal:active{
+  background: linear-gradient(90deg,  #e78064ab, #ee4823a7);
+  box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
+}
+.viewmeal{
+    background: linear-gradient(90deg, #f9572a, #ff9b05);
+}
+.viewmeal:hover,
+.viewmeal:active{
   background: linear-gradient(90deg, #fd4715, #f9b241);
   box-shadow: 0 0 12px rgba(242, 100, 18, 0.8);
 }
