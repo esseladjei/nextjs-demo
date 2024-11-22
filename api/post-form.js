@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals-backend";
+import { revalidatePath } from "next/cache";
 
   export default async function shareMeal(formData){
     const meal={
@@ -13,5 +14,7 @@ import { saveMeal } from "./meals-backend";
       creator_email: formData.get('email')
     }
     await saveMeal(meal);
+    //trigger cache revalidations to enable  next to fetch new content from the sever
+    revalidatePath('/meals')
     redirect('/meals')
   }
